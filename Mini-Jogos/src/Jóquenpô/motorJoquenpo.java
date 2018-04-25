@@ -84,6 +84,8 @@ private JFrame frmRPS;
 		frmRPS.getContentPane().add(btnMenu);
 		
 		JTextPane txtpnS = new JTextPane();
+		txtpnS.setFocusable(false);
+		txtpnS.setEditable(false);
 		txtpnS.setText(escolha);
 		txtpnS.setBounds(10, 11, 287, 179);
 		frmRPS.getContentPane().add(txtpnS);
