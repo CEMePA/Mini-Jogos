@@ -4,10 +4,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class motorRPG {
+	static int play = 1;
+	static int level =0;//nivel do jogo
 
 	public static void main(String[] args) {
 		Scanner scanf = new Scanner(System.in); 
-		int play = 1;
+		
 		do {
 			int turn=0;
 			if(turn==0) {
@@ -60,12 +62,15 @@ public class motorRPG {
 	}
 	
 	static void battle() {
+		//declaração das variasveis
 		int lifeUser = 100;
 		int specialCountUser = 3;
 		int lifeCpu = 100;
 		int specialCountCpu = 2;
 		int chooseAttack;
 		int attack;
+		//fim variaveis
+		
 		Random useSpecialAttack = new Random();
 		while(lifeUser>0 && lifeCpu>0) {
 			showStats(lifeUser, lifeCpu, specialCountUser, specialCountCpu);
@@ -95,19 +100,26 @@ public class motorRPG {
 			}
 			
 			if(lifeCpu > 0) {
+				Random error = new Random();
+				int ataque = error.nextInt(10)+1;// de 1 a 10
+				if(ataque>=1 && ataque<=9) {
 				chooseAttack = cpuAttack();
-				switch (chooseAttack) {
-					case 1: System.out.println("CPU Slapped User"); lifeUser -= 7; break;
-					case 2: System.out.println("CPU Punched User"); lifeUser -= 10; break;
-					case 3: System.out.println("CPU Kicked User"); lifeUser -= 15; break;
+				switch (chooseAttack) {//inicio switch
+					case 1: System.out.println("CPU Slapped User"); lifeUser -= 7 + level; break;
+					case 2: System.out.println("CPU Punched User"); lifeUser -= 10 + level; break;
+					case 3: System.out.println("CPU Kicked User"); lifeUser -= 15 + level; break;
 					case 4: if(specialCountCpu>0) {
-						 		System.out.println("CPU used a Special Attack on User"); lifeUser -= 20; specialCountCpu--; break;
+						 		System.out.println("CPU used a Special Attack on User"); lifeUser -= 20 + level; specialCountCpu--; break;
 						 	}else {
-						 		System.out.println("CPU Kicked User"); lifeUser -= 15; break;
+						 		System.out.println("CPU Kicked User"); lifeUser -= 15 + level; break;
 						 	}
-				}
+				}//fim switch
+			}else {
+				System.out.println("CPU missed");
+		}
 			}else{
 				System.out.println("CPU has been defeated");
+				level++;
 				break;
 				
 			}if(lifeUser<=0) {System.out.println("User has been defeated!");}
@@ -120,6 +132,5 @@ public class motorRPG {
 			}
 			
 		}
-	}
-	
-}
+	}                                                                                                                                                                                                                                                                                                                                                                                                                         
+} 
