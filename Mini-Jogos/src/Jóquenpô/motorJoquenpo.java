@@ -2,6 +2,7 @@ package Jóquenpô;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.nio.channels.ShutdownChannelGroupException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,12 +10,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
 import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class motorJoquenpo {
 
 private JFrame frmRPS;
-	
-	String escolha = "Welcome to Rock, Paper, Scissors!\nBy: Jeremias Monteiro Oliveira";
+int escolha = 0;
+int winsCpu = 0;
+int winsUser = 0;
+int ties = 0;
+int round = 1;
+
+String log = " Bem-Vindo ao Jokenpô\n "+showStandings(winsCpu, winsUser, ties, round);
 
 	/**
 	 * Launch the application.
@@ -47,6 +55,8 @@ private JFrame frmRPS;
 	 */
 	private void initialize() {
 		
+		
+		
 		frmRPS = new JFrame();
 		frmRPS.setTitle("Mini Games - J\u00F3quenp\u00F4");
 		frmRPS.setBounds(100, 100, 313, 354);
@@ -61,6 +71,16 @@ private JFrame frmRPS;
 		btnPedra.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnPedra.setBounds(10, 201, 89, 79);
 		frmRPS.getContentPane().add(btnPedra);
+		btnPedra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				escolha = 1;
+				log = log+"\nJO";
+				try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+				log = log+"KEN";
+				try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+				log = log+"PÔ";
+			}
+		});
 		
 		JButton btnPapel = new JButton("Papel");
 		btnPapel.setBackground(Color.LIGHT_GRAY);
@@ -83,24 +103,17 @@ private JFrame frmRPS;
 		btnMenu.setBounds(10, 291, 287, 24);
 		frmRPS.getContentPane().add(btnMenu);
 		
-		JTextPane txtpnS = new JTextPane();
-		txtpnS.setFocusable(false);
-		txtpnS.setEditable(false);
-		txtpnS.setText(escolha);
-		txtpnS.setBounds(10, 11, 287, 179);
-		frmRPS.getContentPane().add(txtpnS);
+		JTextPane tpLog = new JTextPane();
+		tpLog.setForeground(Color.BLACK);
+		tpLog.setBackground(Color.LIGHT_GRAY);
+		tpLog.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		tpLog.setFocusable(false);
+		tpLog.setEditable(false);
+		tpLog.setText(log);
+		tpLog.setBounds(10, 11, 287, 179);
+		frmRPS.getContentPane().add(tpLog);
 
 	}
-
-	//User's Move Input
-		static int userPick() { 
-			Scanner scanf = new Scanner(System.in);
-			System.out.println("What will you choose?: ");
-			System.out.println("(1) - Rock");
-			System.out.println("(2) - Paper");
-			System.out.println("(3) - Scissors");
-			return scanf.nextInt();
-		}
 		
 		//Picks CPU's Move
 		static int cpuPick(){
@@ -109,12 +122,12 @@ private JFrame frmRPS;
 		}
 		
 		//Shows Game Information
-		static void showStandings(int winsCpu, int winsUser, int ties, int round) {
-			System.out.println("\n\nYour Wins: "+winsUser);
-			System.out.println("CPU Wins: "+winsCpu);
-			System.out.println("Ties: "+ties);
-			System.out.println("--------------------");
-			System.out.println("Round: "+round+"\n");
+		static String showStandings(int winsCpu, int winsUser, int ties, int round) {
+			String standing = "\n\n Your Wins: "+winsUser
+					+"\n CPU Wins: "+winsCpu
+					+"\n Ties: "+ties
+					+"\n Round: "+round+"\n";
+			return standing;
 		}
 		
 		static int playAgain() {
@@ -232,5 +245,17 @@ private JFrame frmRPS;
 			System.out.println("\nThanks for Playing!\nBy: Jeremias Monteiro Oliveira");
 			
 		}
-	
+		
+		static String declaration1() {
+			return "JO";
+		}
+		
+		static String declaration2() {
+			return "KEN";
+		}
+		
+		static String declaration3() {
+			return "PÔ!";
+		}
+		
 }
