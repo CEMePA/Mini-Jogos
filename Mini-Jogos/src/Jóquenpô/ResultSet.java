@@ -9,8 +9,8 @@ public class ResultSet {
 		String sql = "SELCT * FROM tabela";
 		PreparedStatement stmt = conexao.getConexao.prepareStatement(sql);
 		try {
-			smtp.setString(1, stmt.getLogin());
-			smtp.setString(2, stmt.getSenha());
+			stmt.setString(1, stmt.getLogin());
+			stmt.setString(2, stmt.getSenha());
 			ResultSet rs = stmt.executeQuery();
 			stmt.execute();
 			stmt.close();
@@ -19,6 +19,9 @@ public class ResultSet {
 	}
 		selectionaDados();
 		btnBotao.setText(dados("coluna"));
+		
+		if(dados.next()) {
+			
 		
 		
 		
