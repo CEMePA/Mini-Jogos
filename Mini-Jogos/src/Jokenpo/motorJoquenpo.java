@@ -1,4 +1,4 @@
-package Jóquenpô;
+package Jokenpo;
 
 import java.awt.Color;
 import java.awt.EventQueue;
