@@ -59,7 +59,7 @@ public class Visual {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 657, 433);
+		frame.setBounds(100, 100, 657, 608);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -88,7 +88,7 @@ public class Visual {
 				mudarVez();
 			}
 		});
-		btnSoco.setBounds(114, 267, 203, 41);
+		btnSoco.setBounds(167, 475, 203, 41);
 		frame.getContentPane().add(btnSoco);
 		
 		btnChapuletada = new JButton("Chapuletada");
@@ -104,7 +104,7 @@ public class Visual {
 			}
 		});
 		btnChapuletada.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnChapuletada.setBounds(334, 267, 203, 41);
+		btnChapuletada.setBounds(387, 475, 203, 41);
 		frame.getContentPane().add(btnChapuletada);
 		
 		btnBica = new JButton("Bica");
@@ -120,7 +120,7 @@ public class Visual {
 			}
 		});
 		btnBica.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnBica.setBounds(114, 319, 203, 41);
+		btnBica.setBounds(167, 527, 203, 41);
 		frame.getContentPane().add(btnBica);
 		
 		btnVoadora = new JButton("Voadora de 2 p\u00E9");
@@ -136,7 +136,7 @@ public class Visual {
 			}
 		});
 		btnVoadora.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnVoadora.setBounds(334, 319, 203, 41);
+		btnVoadora.setBounds(387, 527, 203, 41);
 		frame.getContentPane().add(btnVoadora);
 		
 		lblVez = new JLabel("Vez de: ");
@@ -144,6 +144,10 @@ public class Visual {
 		lblVez.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblVez.setBounds(10, 11, 631, 41);
 		frame.getContentPane().add(lblVez);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(10, 115, 241, 349);
+		frame.getContentPane().add(lblNewLabel);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		
