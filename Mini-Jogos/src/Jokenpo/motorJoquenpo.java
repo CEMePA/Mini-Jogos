@@ -157,7 +157,7 @@ String log = " Bem-Vindo ao Jokenpô\n "+showStandings(winsCpu, winsUser, ties, r
 				while(winsUser<5 && winsCpu<5) {
 					try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
 					showStandings(winsCpu, winsUser, ties, round); 
-					x = userPick();
+				//	x = userPick();
 					y = cpuPick();
 				
 					//Declaration
@@ -169,6 +169,7 @@ String log = " Bem-Vindo ao Jokenpô\n "+showStandings(winsCpu, winsUser, ties, r
 					try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
 					round++;
 				
+					/*
 					//User Picked Rock
 					if((x==1  || x%3==1) && y==1) {
 						System.out.println("User and CPU both picked Rock: Tie");
@@ -221,6 +222,7 @@ String log = " Bem-Vindo ao Jokenpô\n "+showStandings(winsCpu, winsUser, ties, r
 					}	
 					
 				}
+				*/
 				
 				try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
 				
