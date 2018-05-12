@@ -335,10 +335,10 @@ public class Visual {
 		if(cowlOn == 1) {
 			vida2 -= 10;
 		}else {
-			if(i>3) {
+			if(i>2) {
 				vida1 -= 5;
 				vida2 -= 15;
-			}else if(i==3) {
+			}else if(i==2) {
 				vida1 -= 5;
 				vida2 -= 18;
 			}else {
@@ -354,14 +354,12 @@ public class Visual {
 		if(cowlOn == 1) {
 			vida2 -= 7;
 		}else {
-			if(i>2) {
+			if(i>1) {
 				vida1 -= 5;
 				vida2 -= 10;
-			}else if(i==2) {
+			}else if(i==1) {
 				vida1 -= 5;
 				vida2 -= 13;
-			}else {
-				JOptionPane.showMessageDialog(null, "Izuku Errou");
 			}
 		}
 	}
@@ -372,10 +370,10 @@ public class Visual {
 		if(cowlOn == 1) {
 			vida2 -= 15;
 		}else {
-			if(i>4) {
+			if(i>3) {
 				vida1 -= 10;
 				vida2 -= 20;
-			}else if(i==4) {
+			}else if(i==3) {
 				vida1 -= 10;
 				vida2 -= 23;
 			}else {
